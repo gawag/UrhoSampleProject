@@ -1402,7 +1402,7 @@ macro (define_dependency_libs TARGET)
     # ThirdParty/SDL external dependency
     if (${TARGET} MATCHES SDL|Urho3D)
         if (WIN32)
-            list (APPEND LIBS user32 gdi32 winmm imm32 ole32 oleaut32 version uuid)
+            list (APPEND LIBS user32 gdi32 winmm imm32 ole32 oleaut32 version uuid setupapi)
         elseif (APPLE)
             list (APPEND LIBS dl)
         elseif (ANDROID)

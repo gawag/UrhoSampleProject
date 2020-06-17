@@ -277,15 +277,15 @@ public:
 
         // camera movement
         Input* input=GetSubsystem<Input>();
-        if(input->GetQualifierDown(1))  // 1 is shift, 2 is ctrl, 4 is alt
+        if(input->GetQualifierDown(QUAL_SHIFT))  // 1 is shift, 2 is ctrl, 4 is alt
             MOVE_SPEED*=10;
-        if(input->GetKeyDown('W'))
+        if(input->GetKeyDown(KEY_W))
             cameraNode_->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-        if(input->GetKeyDown('S'))
+        if(input->GetKeyDown(KEY_S))
             cameraNode_->Translate(Vector3(0,0,-1)*MOVE_SPEED*timeStep);
-        if(input->GetKeyDown('A'))
+        if(input->GetKeyDown(KEY_A))
             cameraNode_->Translate(Vector3(-1,0,0)*MOVE_SPEED*timeStep);
-        if(input->GetKeyDown('D'))
+        if(input->GetKeyDown(KEY_D))
             cameraNode_->Translate(Vector3( 1,0,0)*MOVE_SPEED*timeStep);
 
         if(!GetSubsystem<Input>()->IsMouseVisible())
@@ -316,7 +316,7 @@ public:
             GetSubsystem<Input>()->SetMouseVisible(!GetSubsystem<Input>()->IsMouseVisible());
             GetSubsystem<Input>()->SetMouseGrabbed(!GetSubsystem<Input>()->IsMouseGrabbed());
         }
-        else if(key==KEY_ESC)
+        else if(key== KEY_ESCAPE)
             engine_->Exit();
         else if(key==KEY_G)
             window->SetVisible(!window->IsVisible());
